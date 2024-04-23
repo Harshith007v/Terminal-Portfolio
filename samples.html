@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command Prompt</title>
+<style>
+body {
+  font-family: monospace;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+.prompt-container {
+  display: flex;
+  align-items: center;
+}
+
+.prompt-line {
+  border-left: 2px solid #0f0;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.username {
+  color: #f0f;
+  font-weight: bold;
+}
+
+.cursor {
+  width: 1px;
+  height: 15px;
+  background-color: #0f0;
+  animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: #0f0;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="prompt-container">
+    <span class="prompt-line">
+      <span class="username">user</span>@machine:~$
+    </span>
+  </div>
+  <div class="prompt-container">
+    <span class="prompt-line">
+      <span>_</span>
+    </span>
+  </div>
+  <script>
+  </script>
+</body>
+</html>
