@@ -1,63 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Command Prompt</title>
-<style>
-body {
-  font-family: monospace;
-  background-color: #000;
-  color: #fff;
-  margin: 0;
-  padding: 20px;
-}
+    <meta charset="UTF-8">
+    <title>Circular Progress with Percentage</title>
+    <style>
+        /* Style for the container of the circular progress bar */
+        .circular-progress {
+            position: relative; /* For positioning the inner elements */
+            width: 100px; /* The width of the SVG */
+            height: 100px; /* The height of the SVG */
+            display: inline-block; /* To align multiple progress indicators side by side */
+        }
 
-.prompt-container {
-  display: flex;
-  align-items: center;
-}
+        /* SVG circle base styles */
+        .circle {
+            fill: none; /* No fill, just the stroke */
+            stroke-width: 10; /* The thickness of the circle's stroke */
+            stroke-dasharray: 314; /* Circumference of a circle with radius 50 and width 100px */
+        }
 
-.prompt-line {
-  border-left: 2px solid #0f0;
-  padding-left: 10px;
-  margin-bottom: 5px;
-}
+        /* Background circle */
+        .circle-bg {
+            stroke: #ddd; /* Light gray for the background */
+        }
 
-.username {
-  color: #f0f;
-  font-weight: bold;
-}
+        /* Progress circle with animation */
+        .circle-progress {
+            stroke: #4caf50; /* Green stroke color for the progress */
+            stroke-dashoffset: 314; /* Start offset for full circle */
+            transform: rotate(-90deg); /* To start from the top */
+            transform-origin: center; /* Rotate around the center */
+            transition: stroke-dashoffset 1s ease; /* Smooth transition */
+        }
 
-.cursor {
-  width: 1px;
-  height: 15px;
-  background-color: #0f0;
-  animation: blink 0.5s infinite alternate;
-}
-
-@keyframes blink {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: #0f0;
-  }
-}
-</style>
+        /* Centered percentage label */
+        .percentage-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the text */
+            font-size: 16px; /* Size of the percentage text */
+            font-weight: bold; /* Bold text */
+        }
+    </style>
 </head>
 <body>
-  <div class="prompt-container">
-    <span class="prompt-line">
-      <span class="username">user</span>@machine:~$
-    </span>
-  </div>
-  <div class="prompt-container">
-    <span class="prompt-line">
-      <span>_</span>
-    </span>
-  </div>
-  <script>
-  </script>
+
+<!-- Button to add circular progress indicators -->
+<button onclick="addCircularProgress()">Add Circular Progress</button>
+
+<!-- Container to hold all circular progress indicators -->
+<div id="circular-progress-container"></div>
+
+<script>
+    function createCircularProgress(percentage) {
+        // Create a div to hold the SVG and text
+        const container = document.createElement("div");
+        container.classList.add("circular-progress");
+
+        // Create the SVG element for the circular progress bar
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("width", "100");
+        svg.setAttribute("height", "100");
+        
+        const radius = 50; // Radius of the circle
+        const circumference = 2 * Math.PI * radius; // Circumference for the stroke-dasharray
+        const offset = circumference - (percentage / 100) * circumference; // Offset for the progress
+
+        // Create the background circle
+        const circleBg = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circleBg.classList.add("circle", "circle-bg");
+        circleBg.setAttribute("cx", "50");
+        circleBg.setAttribute("cy", "50");
+        circleBg.setAttribute("r", "50");
+        svg.appendChild(circleBg);
+
+        // Create the progress circle with animation
+        const circleProgress = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circleProgress.classList.add("circle", "circle-progress");
+        circleProgress.setAttribute("cx", "50");
+        circleProgress.setAttribute("cy", "50");
+        circleProgress.setAttribute("r", "50");
+        circleProgress.setAttribute("stroke-dasharray", circumference);
+        circleProgress.setAttribute("stroke-dashoffset", offset);
+        svg.appendChild(circleProgress);
+
+        // Create the text for the percentage
+        const percentageText = document.createElement("div");
+        percentageText.classList.add("percentage-text");
+        percentageText.innerText = `${percentage}%`;
+
+        // Add the SVG and text to the container
+        container.appendChild(svg);
+        container.appendChild(percentageText);
+
+        return container;
+    }
+
+    function addCircularProgress() {
+        const container = document.getElementById("circular-progress-container");
+
+        // Add new circular progress indicators with different percentages
+        const pythonProgress = createCircularProgress(90); // 90% proficiency
+        const jsProgress = createCircularProgress(80); // 80% proficiency
+        const cppProgress = createCircularProgress(70); // 70% proficiency
+
+        container.appendChild(pythonProgress);
+        container.appendChild(jsProgress);
+        container.appendChild(cppProgress);
+    }
+</script>
+
 </body>
 </html>
