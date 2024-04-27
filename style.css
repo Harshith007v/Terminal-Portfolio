@@ -162,7 +162,7 @@ span {
 }
 
 /* For iphone SE */
-@media (width<=412px) {
+@media (width<=414px) {
   .terminal-header {
     height: 5%;
   }
