@@ -44,39 +44,46 @@ function handleKeyPress(e) {
       case "skills":
         const targetContainer = document.getElementById("terminal-body");
 
+        const wholeskills = document.createElement("div");
+        wholeskills.style.display = "flex";
+        wholeskills.className = "wholeskills";
+        wholeskills.style.gap = "40px";
+        wholeskills.style.margin = "15px 0 0 15%";
+
         function createSkill(language, proficiency) {
           const skillDiv = document.createElement("div");
-          skillDiv.style.display = "flex";
           skillDiv.style.marginBottom = "10px";
+
+          const progressContainer = document.createElement("div");
+          progressContainer.classList.add("progress-container");
+          skillDiv.appendChild(progressContainer);
 
           const languageDiv = document.createElement("div");
           languageDiv.innerText = language;
           languageDiv.className = "lang";
           skillDiv.appendChild(languageDiv);
 
-          const progressContainer = document.createElement("div");
-          progressContainer.classList.add("progress-container");
-          skillDiv.appendChild(progressContainer);
-
           const progressBar = document.createElement("div");
           progressBar.classList.add("progress-bar");
-          progressBar.style.setProperty("--target-width", `${proficiency}%`);
+          progressBar.innerHTML = `${proficiency}%`;
           progressContainer.appendChild(progressBar);
 
           return skillDiv;
         }
 
         const cppSkill = createSkill("C++", 80);
-        const jsSkill = createSkill("JAVASCRIPT", 80);
-        const pythonSkill = createSkill("PYTHON", 70);
+        const jsSkill = createSkill("JS", 80);
+        const pythonSkill = createSkill("PY", 70);
         const mern = createSkill("MERN", 60);
         const java = createSkill("JAVA", 40);
 
-        targetContainer.appendChild(jsSkill);
-        targetContainer.appendChild(mern);
-        targetContainer.appendChild(cppSkill);
-        targetContainer.appendChild(pythonSkill);
-        targetContainer.appendChild(java);
+        wholeskills.appendChild(jsSkill);
+        wholeskills.appendChild(mern);
+        wholeskills.appendChild(cppSkill);
+        wholeskills.appendChild(pythonSkill);
+        wholeskills.appendChild(java);
+
+        targetContainer.appendChild(wholeskills);
 
         break;
 
@@ -110,7 +117,7 @@ function handleKeyPress(e) {
       case "projects":
         const proj = document.createElement("div");
         proj.innerHTML +=
-          "<p>Please Click on the below links to view the projects.</p> ";
+          "<p>Please Click on the below links to view some of my projects.</p> ";
         proj.style.margin = "10px 0 0 15px";
 
         function createProject(link, name) {

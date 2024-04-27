@@ -104,7 +104,7 @@ body {
 }
 
 .dollar {
-  margin-top: 4px;
+  margin-top: 8.5px;
 }
 
 input {
@@ -134,63 +134,80 @@ span {
   font-weight: 500;
 }
 
+#help {
+  color: rgb(9, 217, 9);
+}
+
 .img-harshi {
   width: 200px;
-  height: 210px;
+  height: 225px;
   margin: 10px 0 0 40%;
   border-radius: 50%;
 }
 
 .progress-container {
-  width: 300px;
-  height: 10px;
-  background-color: rgb(208, 202, 202);
-  border-radius: 5px;
-  border: 1px solid black;
-  overflow: hidden;
-  margin: 15px 0 0 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid rgb(9, 217, 9);
 }
 
 .progress-bar {
-  height: 20px;
-  background-color: rgb(9, 217, 9);
-  animation: progress 2s ease-in-out forwards;
-}
-
-@keyframes progress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: var(--target-width, 0%);
-  }
+  margin: 30px 5px 5px 25px;
+  color: rgb(46, 162, 244);
 }
 
 .lang {
-  margin-left: 15px;
-  margin-top: 10px;
+  margin: 10px 0 0 30px;
 }
 
-@media (width<=375px) {
+/* For iphone SE */
+@media (width<=412px) {
   .terminal-header {
     height: 5%;
   }
-}
 
-@media (width<=1200px) {
+  body {
+    font-size: 9px;
+  }
+
+  .line-2 {
+    height: 21px;
+  }
+
+  input {
+    margin-left: 2px;
+    margin-top: 8px;
+    font-size: 9px;
+  }
+
   .img-harshi {
-    margin: 10px 0 0 30%;
+    width: 100px;
+    height: 100px;
+    margin-left: 31%;
   }
-}
 
-@media (width<=1005px) {
-  .terminal-body {
-    height: 80%;
+  .terminal {
+    width: 82%;
   }
-}
 
-@media (width<=525px) {
+  .about {
+    width: 89%;
+  }
+
+  .wholeskills {
+    flex-wrap: wrap;
+  }
+
+  .progress-bar {
+    margin: 34px 5px 5px 31px;
+  }
+
+  .lang {
+    margin: 10px 0 0 35px;
+  }
+
   .terminal-body {
-    height: 75%;
+    height: 85%;
   }
 }
