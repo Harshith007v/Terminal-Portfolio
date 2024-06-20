@@ -16,8 +16,6 @@ function copyDiv() {
 
 const about = document.createElement("div");
 
-about.innerHTML +=
-  "<p>Hi, I'm Harshith V, an aspiring software engineer with a strong foundation in Information Science and hands-on experience in artificial intelligence and machine learning. </p><p>I recently completed my Bachelor's degree in Information Science at Bangalore Institute of Technology with a CGPA of 9.40.</p>My expertise includes C/C++, Python, and JavaScript, and I have developed proficiency in frameworks like React.js, Node.js, MongoDB, and Express.js. I'm passionate about technology, constantly learning new skills, and enjoy tackling challenging projects.";
 
 function handleKeyPress(e) {
   if (e.key === "Enter") {
@@ -33,11 +31,33 @@ function handleKeyPress(e) {
           "Available commands: about, skills, projects, contact, clear.";
         break;
       case "about":
+
         outputArea.className = "about";
-        const img = document.createElement("img");
-        img.src = "images/harshi.jpeg";
-        img.className = "img-harshi";
-        outputArea.appendChild(img);
+
+        const imgdiv = document.createElement("div");
+        imgdiv.className = "imgdiv";
+
+        const img1 = document.createElement("img");
+        img1.src = "images/harshi.jpeg";
+        img1.className = "img-harshi";
+
+        // const img2 = document.createElement("img");
+        // img2.src = "images/harshi2.jpeg";
+        // img2.className = "img-harshi";
+
+        // const img3 = document.createElement("img");
+        // img3.src = "images/harshi.jpeg";
+        // img3.className = "img-harshi";
+
+        imgdiv.appendChild(img1);
+        // imgdiv.appendChild(img2);
+        // imgdiv.appendChild(img3);
+        
+        about.appendChild(imgdiv);
+
+        about.innerHTML +=
+  "<p>Hi, I'm Harshith V, an aspiring software engineer with a strong foundation in Information Science and hands-on experience in artificial intelligence and machine learning. </p><p>I recently completed my Bachelor's degree in Information Science at Bangalore Institute of Technology with a CGPA of 9.40.</p>My expertise includes C/C++, Python, and JavaScript, and I have developed proficiency in frameworks like React.js, Node.js, MongoDB, and Express.js. I'm passionate about technology, constantly learning new skills, and enjoy tackling challenging projects.";
+
         outputArea.appendChild(about);
         break;
 

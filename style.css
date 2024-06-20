@@ -41,7 +41,7 @@ body {
   height: 15px;
   border-radius: 50%;
   background-color: blue;
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 .circle-1 {
@@ -104,7 +104,8 @@ body {
 }
 
 .dollar {
-  margin-top: 8.5px;
+  margin-top: 6px;
+  margin-left: 1px;
 }
 
 input {
@@ -112,7 +113,7 @@ input {
   outline: none;
   background-color: transparent;
   margin-left: 10px;
-  margin-top: 3px;
+  margin-top: 5px;
   color: rgb(9, 217, 9);
   font-family: "Fira Code", monospace;
   font-size: 15px;
@@ -141,8 +142,21 @@ span {
 .img-harshi {
   width: 200px;
   height: 225px;
-  margin: 10px 0 0 40%;
-  border-radius: 50%;
+  margin: 10px 0 0 10px;
+  border-radius: 0%;
+}
+
+.imgdiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.about img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.about img:hover {
+  transform: scale(1.1);
 }
 
 .progress-container {
@@ -164,7 +178,16 @@ span {
 /* For iphone SE */
 @media (width<=414px) {
   .terminal-header {
-    height: 5%;
+    height: 3%;
+  }
+
+  .circle-1,
+  .circle-2,
+  .circle-3 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top:4px;
   }
 
   body {
@@ -177,14 +200,14 @@ span {
 
   input {
     margin-left: 2px;
-    margin-top: 8px;
+    margin-top: 5px;
     font-size: 9px;
   }
 
   .img-harshi {
     width: 100px;
     height: 100px;
-    margin-left: 31%;
+    margin-left: 6%;
   }
 
   .terminal {
@@ -210,4 +233,13 @@ span {
   .terminal-body {
     height: 85%;
   }
+
+  .line-3{
+    margin-top: 11px;
+  }
+
+  .design{
+    margin-top: 3px;
+  }
+
 }
