@@ -159,9 +159,15 @@ function handleKeyPress(e) {
           "Weather-App"
         );
 
+        const sorting = createProject(
+          "https://sortingvisualizerharshith.netlify.app/",
+          "Sorting Visualizer"
+        );
+
         outputArea.style.display = "flex";
         outputArea.style.flexDirection = "column";
         outputArea.appendChild(proj);
+        outputArea.appendChild(sorting);
         outputArea.appendChild(todo);
         outputArea.appendChild(weather);
 
