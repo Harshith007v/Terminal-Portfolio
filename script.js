@@ -16,7 +16,6 @@ function copyDiv() {
 
 const about = document.createElement("div");
 
-
 function handleKeyPress(e) {
   if (e.key === "Enter") {
     const inputField = e.target;
@@ -31,7 +30,6 @@ function handleKeyPress(e) {
           "Available commands: about, skills, projects, contact, clear.";
         break;
       case "about":
-
         outputArea.className = "about";
 
         const imgdiv = document.createElement("div");
@@ -52,11 +50,11 @@ function handleKeyPress(e) {
         imgdiv.appendChild(img1);
         // imgdiv.appendChild(img2);
         // imgdiv.appendChild(img3);
-        
+
         about.appendChild(imgdiv);
 
         about.innerHTML +=
-  "<p>Hi, I'm Harshith V, an aspiring software engineer with a strong foundation in Information Science and hands-on experience in artificial intelligence and machine learning. </p><p>I recently completed my Bachelor's degree in Information Science at Bangalore Institute of Technology with a CGPA of 9.40.</p>My expertise includes C/C++, Python, and JavaScript, and I have developed proficiency in frameworks like React.js, Node.js, MongoDB, and Express.js. I'm passionate about technology, constantly learning new skills, and enjoy tackling challenging projects.";
+          "<p>Hi, I'm Harshith V, an aspiring software engineer with a strong foundation in Information Science and hands-on experience in artificial intelligence and machine learning. </p><p>I recently completed my Bachelor's degree in Information Science at Bangalore Institute of Technology with a CGPA of 9.40.</p>My expertise includes C/C++, Python, and JavaScript, and I have developed proficiency in frameworks like React.js, Node.js, MongoDB, and Express.js. I'm passionate about technology, constantly learning new skills, and enjoy tackling challenging projects.";
 
         outputArea.appendChild(about);
         break;
@@ -155,10 +153,6 @@ function handleKeyPress(e) {
           "https://harshithtodolist.netlify.app/",
           "ToDo-List-Reactjs"
         );
-        const netflix = createProject(
-          "https://harshith-landingpage-netflix.netlify.app/",
-          "Netflix-LandingPage"
-        );
 
         const weather = createProject(
           "https://harshithwebapp.netlify.app/",
@@ -168,7 +162,6 @@ function handleKeyPress(e) {
         outputArea.style.display = "flex";
         outputArea.style.flexDirection = "column";
         outputArea.appendChild(proj);
-        outputArea.appendChild(netflix);
         outputArea.appendChild(todo);
         outputArea.appendChild(weather);
 
